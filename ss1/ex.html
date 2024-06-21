@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<p> let arr = [1, 2, 3, 4, 5, 6, 7]</p>
+<p>    1. Tạo một mảng mới chứa các số lớn hơn 5 từ mảng ban đầu: <span id="ex1"></span></p>
+<p>    2. Sử dụng arrow function và reduce để tính tổng các phần tử trong mảng:<span id="ex2"></span></p>
+<p>    3. Kiểm tra 1 mảng có chứa số V = <span id="v"></span> hay không nếu có trả về V không thì trả về "không tìm thấy": <span id="ex3"></span></p>
+<p>    4. Kiểm tra 1 mảng tất cả các phần tử trong mảng đó có lớn hơn 0 hay không?:<span id="ex4"></span></p>
+<p>    5. Tìm phần tử đầu tiên trong mảng lớn hơn 3: <span id="ex5"></span></p>
+<p>    6. Sử dụng destructuring với rest parameter để trích xuất phần tử đầu tiên vào biến "first" và các phần tử còn lại vào một mảng mới "rest" <button onclick="ex6()">Click</button></p>
+<p>    7. Sử dụng destructuring để trích xuất các giá trị "name" và "age" từ một mảng chứa các đối tượng "person":<button onclick="ex7()">Click</button></p>
+<p>    8. Sử dụng Rest parameter và Spread operator để tạo một hàm nhận vào danh sách các số và trả về tổng của chúng: <span id="ex8"></span></p>
+<p>    9.. Sử dụng Rest parameter để nhận vào một danh sách tên và trả về chuỗi định dạng "Welcome, [tên1], [tên2], [tên3], ..." cho tất cả các tên: <button onclick="ex9(arr)">Click</button></p>
+<p>    10. Tạo một đối tượng "book" với thuộc tính "title", "author" và "pages" bằng cách sử dụng Enhanced object literals.
+       Đối tượng "book" cũng có phương thức "displayInfo" để in ra thông tin về sách: <button onclick="ex10()">Click</button></p>
+<body>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+<script>
+    let arr = [1, 2, 3, 4, 5, 6, 7]
+    let ex1 = () => arr.filter(x => x > 5)
+
+
+    let ex2 =()=>arr.reduce((a, b) => a + b)
+
+    let ex3 = (v) => {
+        $("#v").text(v)
+        return arr.filter(x => x === v).reduce((previousValue, currentValue) => currentValue, "không tìm thấy")
+    }
+
+    let ex4 = () => arr.reduce((previousValue, currentValue) => previousValue > 0 && currentValue > 0, false)
+    let ex4V2 = () => arr.every(x => x > 0)
+
+    let ex5 = () => arr.find(x => x > 3)
+
+    let ex6 = () => {
+        let [first, ...newArr1] = arr;
+        console.log(`First:${first}`)
+        console.log(`newArray:${newArr1}`)
+    }
+
+    let person = {
+        name: "Arthur",
+        age: 19,
+        address: "DN"
+    }
+    let ex7 = () => {
+        let {name, age} = person
+        console.log(`name:${name}`)
+        console.log(`age:${age}`)
+    }
+
+    let ex8 = (...params) => params.reduce((previousValue, currentValue) => previousValue + currentValue)
+    let ex9 = (...names) =>{
+        let name = names.join(",")
+        console.log(`Welcome,${name}`)
+    }
+
+    let title="Title"
+    let author = "Author"
+    let pages = 10
+    let book = {
+        title,
+        author,
+        pages,
+        displayInfo(){
+            console.log(`Title:${this.title}, author:${this.author},pages:${this.pages}`)
+        }
+    }
+    let ex10=()=>{
+        console.log(book)
+        book.displayInfo()
+    }
+    $("#ex1").text(ex1())
+    $("#ex2").text(ex2())
+    $("#ex3").text(ex3(10))
+    $("#ex4").text(ex4())
+    $("#ex5").text(ex5())
+    $("#ex8").text(ex8(1,2,3,4,5))
+    console.log(ex8(1,2))
+</script>
+</body>
+</html>

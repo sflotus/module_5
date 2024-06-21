@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "name": "C07_TestABC",
+      "age": 20,
+      "gender": "1",
+      "languages": [
+        "JAVA",
+        "ReactJS"
+      ],
+      "id": 2
+    },
+    {
+      "name": "C07_ACV",
+      "age": 20,
+      "gender": "0",
+      "languages": [
+        "JAVA",
+        "ReactJS",
+        "C#"
+      ],
+      "id": 3
+    },
+    {
+      "name": "C07_Nguyen van ABC",
+      "age": 34,
+      "gender": "1",
+      "languages": [
+        "C#"
+      ],
+      "id": 4
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+export  const VALUE_SEARCH='VALUE_SEARCH'
